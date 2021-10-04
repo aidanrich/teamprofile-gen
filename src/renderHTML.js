@@ -1,4 +1,5 @@
 // need to piece together the html page
+const fs = require('fs');
 let renderHTML = [];
 
 const htmlHeader = `<!DOCTYPE html>
@@ -18,7 +19,18 @@ const htmlHeader = `<!DOCTYPE html>
 
 // complete card, might need to be broken up further
 
-const htmlCard = `     <div class="card" style="width: 18rem;">
+const managerCard = `     <div class="card" style="width: 18rem;">
+<div class="card-body">
+  <h5 class="card-title">${responses.role}</h5>
+  <h6 class="card-subtitle mb-2 text-muted">${responses.name}</h6>
+  <h6 class="card-subtitle mb-2 text-muted">Id Number: ${responses.id}</h6>
+  <h6 class="card-subtitle mb-2 text-muted">Office number: ${responses.office}</h6>
+  <a href="#" class="card-link">${responses.email}</a>
+  
+</div>
+</div>`
+
+const engineerCard = `     <div class="card" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title">${responses.role}</h5>
   <h6 class="card-subtitle mb-2 text-muted">${responses.name}</h6>
@@ -29,5 +41,32 @@ const htmlCard = `     <div class="card" style="width: 18rem;">
 </div>
 </div>`
 
+const internCard = `     <div class="card" style="width: 18rem;">
+<div class="card-body">
+  <h5 class="card-title">${responses.role}</h5>
+  <h6 class="card-subtitle mb-2 text-muted">${responses.name}</h6>
+  <h6 class="card-subtitle mb-2 text-muted">Id Number: ${responses.id}</h6>
+  <h6 class="card-subtitle mb-2 text-muted">School: ${responses.school}</h6>
+  <a href="#" class="card-link">${responses.email}</a>
+  
+</div>
+</div>`
+
 
 const htmlFooter = `</body>`
+
+renderHTML = (tempArr) => {
+  renderHTML.push(htmlHeader)
+
+  switch (key) {
+    case value:
+      
+      break;
+  
+    default:
+      break;
+  }
+
+}
+
+module.exports = renderHTML

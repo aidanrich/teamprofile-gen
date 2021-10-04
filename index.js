@@ -1,7 +1,5 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
-// loop code
-// inquirer.registerPrompt("loop", require("inquirer-loop")(inquirer));
 
 // const employee = new Employee();
 // const Employee = require("./lib/Employee");
@@ -14,7 +12,7 @@ var tempArr = []
 
 
 // Questions should loop 
-// We need to make separate cards for each employee
+// We need to make seperate cards for each employee
 // classes need tdd
 
 
@@ -23,66 +21,7 @@ var tempArr = []
 
 
 
-// const employeeQuestions = [
-// {
-//     type: "loop",
-//     name: "items",
-//     message: "Add an employee?",
-//     questions: [
-// {
-//     type: 'checkbox',
-//     message: 'Please pick a role at the company',
-//     name: 'role',
-//     choices: ["Manager", "Engineer", "Intern"]
-// },
-// {
-//     type: 'input',
-//     message: 'What is the employee name?',
-//     name: 'name',
-// },
-// {
-//     type: 'input',
-//     message: 'What is the employee id?',
-//     name: 'id',
-// },
-// {
-//     type: 'input',
-//     message: 'What is the employee email?',
-//     name: 'email',
-// },
 
-// {
-//     type: "input",
-//     name: "github",
-//     message: "Enter your github username:",
-//     when: (answers) => {
-//         if (answers.role[1]) {
-//             return true;
-//         }
-//     }
-// },
-// {
-//     type: 'input',
-//     message: 'What is the managers office number?',
-//     name: 'office',
-//     when: (answers) => {
-//         if (answers.role[0]) {
-//             return true;
-//         }
-//     }
-// },
-// {
-//     type: 'input',
-//     message: 'What is the interns school?',
-//     name: 'school',
-//     when: (answers) => {
-//         if (answers.role[2]) {
-//             return true;
-//         }
-//     }
-// },]
-//     ],
-// };
 function start() {
     const whichEmployee = {
         type: 'list',
