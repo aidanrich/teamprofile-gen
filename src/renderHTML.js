@@ -16,7 +16,7 @@ const htmlHeader = `<!DOCTYPE html>
  <h1 class='masthead-heading'>The Team!</h1>
 </header>`;
 
-// complete card, might need to be broken up
+// complete card, might need to be broken up further
 
 const htmlCard = `     <div class="card" style="width: 18rem;">
 <div class="card-body">
