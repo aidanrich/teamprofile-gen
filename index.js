@@ -224,7 +224,7 @@ const engineerCard = (responses) => { return `     <div class="card" style="widt
   <h6 class="card-subtitle mb-2 text-muted">Id Number: ${responses.getId()}</h6>
   <h6 class="card-subtitle mb-2 text-muted"></h6>
   <a href="#" class="card-link">${responses.getEmail()}</a>
-  <a href="#" class="card-link">${responses.getGithub()}</a>
+  <a href="${responses.getGithub()}" class="card-link">${responses.getGithub()}</a>
 </div>
 </div>`}
 
