@@ -1,14 +1,13 @@
 const inquirer = require('inquirer');
 const fs = require('fs');
 
-// const employee = new Employee();
-// const Employee = require("./lib/Employee");
 const Manager = require("./lib/Manager");
 const Engineer = require("./lib/Engineer");
 const Intern = require("./lib/Intern");
-// const renderHTML = require("./src/renderHTML");
 
-var tempArr = []
+
+var tempArr = [];
+let tempHTML = [];
 
 
 // Questions should loop 
@@ -82,7 +81,7 @@ function makeManager() {
         .then(responses => {
             const manager = new Manager(responses.name, responses.id, responses.email, responses.office)
             tempArr.push(manager)
-            console.log(tempArr);
+            
             inquirer.prompt(moreEmployees)
                 .then(responses => {
                     switch (responses.continue) {
@@ -90,7 +89,7 @@ function makeManager() {
                             start()
                             break;
                         case "No":
-                            renderHTML(responses)
+                            makeHTML(responses)
                             break;
                         default:
                             break;
@@ -125,7 +124,7 @@ function makeEngineer() {
         .then(responses => {
             const engineer = new Engineer(responses.name, responses.id, responses.email, responses.github)
             tempArr.push(engineer)
-            console.log(tempArr);
+            
             inquirer.prompt(moreEmployees)
                 .then(responses => {
                     switch (responses.continue) {
@@ -133,7 +132,7 @@ function makeEngineer() {
                             start()
                             break;
                         case "No":
-                            renderHTML(responses)
+                            makeHTML(responses)
                             break;
                         default:
                             break;
@@ -168,7 +167,7 @@ function makeIntern() {
         .then(responses => {
             const intern = new Intern(responses.name, responses.id, responses.email, responses.school)
             tempArr.push(intern)
-            console.log(tempArr);
+            
             inquirer.prompt(moreEmployees)
                 .then(responses => {
                     switch (responses.continue) {
@@ -176,7 +175,7 @@ function makeIntern() {
                             start()
                             break;
                         case "No":
-                            renderHTML(responses)
+                            makeHTML(responses)
                             break;
                         default:
                             break;
@@ -186,7 +185,7 @@ function makeIntern() {
 }
 
 
-let tempHTML = [];
+
 
 
 const htmlHeader = `<!DOCTYPE html>
@@ -202,11 +201,13 @@ const htmlHeader = `<!DOCTYPE html>
 <body>
 <header class='masthead'>
  <h1 class='masthead-heading'>The Team!</h1>
-</header>`;
+</header>
+<div class="arrange">
+`;
 
 // complete card, might need to be broken up further
 
-const managerCard = (responses) => { return `     <div class="card" style="width: 18rem;">
+function managerCard(responses) { return `     <div class="card better" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title">${responses.getRole()}</h5>
   <h6 class="card-subtitle mb-2 text-muted">${responses.getName()}</h6>
@@ -217,7 +218,7 @@ const managerCard = (responses) => { return `     <div class="card" style="width
 </div>
 </div>`}
 
-const engineerCard = (responses) => { return `     <div class="card" style="width: 18rem;">
+function engineerCard(responses) { return `     <div class="card better" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title">${responses.getRole()}</h5>
   <h6 class="card-subtitle mb-2 text-muted">${responses.getName()}</h6>
@@ -228,7 +229,7 @@ const engineerCard = (responses) => { return `     <div class="card" style="widt
 </div>
 </div>`}
 
-const internCard = (responses) => { return `     <div class="card" style="width: 18rem;">
+function internCard(responses) { return `     <div class="card better" style="width: 18rem;">
 <div class="card-body">
   <h5 class="card-title">${responses.getRole()}</h5>
   <h6 class="card-subtitle mb-2 text-muted">${responses.getName()}</h6>
@@ -240,10 +241,31 @@ const internCard = (responses) => { return `     <div class="card" style="width:
 </div>`}
 
 
-const htmlFooter = `</body>`
+const htmlFooter = `</div></body>`
 
-function renderHTML() {
+function makeHTML() {
   tempHTML.push(htmlHeader);
+
+//   for (let i = 0; i < tempArr.length; i++) {
+//       const employee = tempArr[i]
+//       console.log(employee)
+//     switch (employee.role) {
+//     case "Manager":
+//         const managerC = managerCard(responses)
+//       tempHTML.push(managerC);
+//       break;
+//     case "Engineer":
+//         const engineerC = engineerCard(responses)
+//       tempHTML.push(engineerC);
+//       break;
+//     case "Intern":
+//         const internC = internCard(responses)
+//       tempHTML.push(internC);
+//       break;
+//     default:
+//       break;
+//   }
+//   }
 
   tempArr.forEach(responses => {
     
@@ -261,6 +283,7 @@ function renderHTML() {
     default:
       break;
   }});
+  
   tempHTML.push(htmlFooter);
 
   tempHTML = tempHTML.join('')

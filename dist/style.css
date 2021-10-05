@@ -2,7 +2,10 @@ body {
     color: #222222;
     font-size: 1em;
     font-family: "Open Sans", "Helvetica Neue", sans-serif;
+    background-color: lightgrey;
+
 }
+
 
 .content-footer,
 .masthead-heading,
@@ -32,23 +35,6 @@ body {
     color: #ffffff;
 }
 
-.details {
-    max-width: 38em;
-    margin-left: auto;
-    margin-right: auto;
-    margin-top: 2em;
-}
-
-.details > p {
-    font-weight: 300;
-    letter-spacing: 0.05em;
-}
-
-.details > h2 {
-    font-size: 1.2em;
-    font-weight: bold;
-    margin: 2em 0 1em 0;
-}
 
 section > h1 {
     margin-top: 2em;
@@ -67,4 +53,15 @@ section > h1 {
 .social > li {
   display: inline-block;
   margin: 0 5px;
+}
+
+.arrange {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+}
+
+.better {
+  margin: 1em;    
+ 
 }
